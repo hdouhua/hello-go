@@ -1,0 +1,6 @@
+
+# ignore some executable files after building
+main
+mymodule*
+
+#

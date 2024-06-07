@@ -1,0 +1,61 @@
+{
+  "Insert Header 1": {
+    "scope": "markdown",
+    "prefix": "h1",
+    "body": ["# ${1:Header 1}", "$0"],
+    "description": "Inserts a header level 1"
+  },
+  "Insert Header 2": {
+    "scope": "markdown",
+    "prefix": "h2",
+    "body": ["## ${1:Header 2}", "$0"],
+    "description": "Inserts a header level 2"
+  },
+  "Insert Link": {
+    "scope": "markdown",
+    "prefix": "link",
+    "body": ["[${1:link text}](http://${2:url})", "$0"],
+    "description": "Inserts a markdown link"
+  },
+  "Insert Image": {
+    "scope": "markdown",
+    "prefix": "img",
+    "body": ["![${1:alt text}](http://${2:url})", "$0"],
+    "description": "Inserts a markdown image"
+  },
+  "Insert Code Block": {
+    "scope": "markdown",
+    "prefix": "codeblock",
+    "body": ["```${1:language}", "${2:code}", "```", "$0"],
+    "description": "Inserts a markdown code block"
+  },
+  "Insert Table": {
+    "scope": "markdown",
+    "prefix": "table",
+    "body": [
+      "| ${1:Header 1} | ${2:Header 2} |",
+      "| ------------- | ------------- |",
+      "| ${3:Row 1 Col 1} | ${4:Row 1 Col 2} |",
+      "| ${5:Row 2 Col 1} | ${6:Row 2 Col 2} |",
+      "$0"
+    ],
+    "description": "Inserts a markdown table"
+  },
+  "Insert Quote": {
+    "scope": "markdown",
+    "prefix": "quote",
+    "body": ["> ${1:quote}", "$0"],
+    "description": "Inserts a markdown quote"
+  },
+  "Insert Task List": {
+    "scope": "markdown",
+    "prefix": "tasklist",
+    "body": [
+      "- [ ] ${1:Task 1}",
+      "- [ ] ${2:Task 2}",
+      "- [ ] ${3:Task 3}",
+      "$0"
+    ],
+    "description": "Inserts a markdown task list"
+  }
+}

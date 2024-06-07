@@ -1,3 +1,5 @@
+# mac
+.DS_Store
 
 # ignore some executable files after building
 main

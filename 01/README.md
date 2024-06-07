@@ -329,6 +329,10 @@ Go 编译器为了确保包的初始化是可预测且一致的，在 go 1.21 �
    - 注册模式实际上是 init 对工厂设计模式的实现
    - 参考[示例](./module-init/internal/main.go)
 
+## 实践
+
+创建一个简单的 web 服务应用。[详见](./simple-http-server/)
+
 ## 参考
 
 - https://tonybai.com/google-go-style/google-go-style-best-practices/

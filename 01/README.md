@@ -331,7 +331,8 @@ Go 编译器为了确保包的初始化是可预测且一致的，在 go 1.21 �
 
 ## 实践
 
-创建一个简单的 web 服务应用。[详见](./simple-http-server/)
+- 一个简单的 web 服务应用，[详见此](./simple-http-server/)
+- 一个图书服务管理 API ，[详见此](./bookstore/)
 
 ## 参考
 

@@ -1,7 +1,7 @@
 ## GOPATH
 
 ```shell
--> go build main.go
+» go build main.go
 
 main.go:3:8: no required module provides package github.com/sirupsen/logrus: go.mod file not found in current directory or any parent directory; see 'go help modules'
 
@@ -10,7 +10,7 @@ main.go:3:8: no required module provides package github.com/sirupsen/logrus: go.
 要解决这个问题， `go get` 该登场了。
 
 ```shell
--> go get github.com/sirupsen/logrus
+» go get github.com/sirupsen/logrus
 # 
 go: go.mod file not found in current directory or any parent directory.
         'go get' is no longer supported outside a module.
@@ -19,7 +19,7 @@ go: go.mod file not found in current directory or any parent directory.
         For more information, see https://golang.org/doc/go-get-install-deprecation
         or run 'go help get' or 'go help install'.
 
--> go install github.com/sirupsen/logrus@latest
+» go install github.com/sirupsen/logrus@latest
 #
 package github.com/sirupsen/logrus is not a main package
 ```

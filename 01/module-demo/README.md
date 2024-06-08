@@ -5,12 +5,12 @@
 - go build
 
 ```shell
-mkdir module-demo
-cd module-demo
-vi main.go
+» mkdir module-demo
+» cd module-demo
+» vi main.go
 # ...
 
-go mod init mymodule01
-go build
-./mymodule01
+» go mod init mymodule01
+» go build
+» ./mymodule01
 ```

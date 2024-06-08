@@ -5,7 +5,7 @@
 在上一个 module 的基础上修改代码
 
 ```shell
--> cp -r module-demo module-demo-02
+» cp -r module-demo module-demo-02
 ```
 
 添加包 "github.com/google/uuid" 的引用，并且打印 uuid
@@ -25,7 +25,7 @@ func main() {
 编译
 
 ```shell
--> go build
+» go build
 
 # 得到如下错误
 main.go:4:2: no required module provides package github.com/google/uuid; to add it:
@@ -35,7 +35,7 @@ main.go:4:2: no required module provides package github.com/google/uuid; to add 
 执行 go get 修复
 
 ```shell
--> go get "github.com/google/uuid"
+» go get "github.com/google/uuid"
 # 
 go: downloading github.com/google/uuid v1.6.0
 go get: added github.com/google/uuid v1.6.0
@@ -53,7 +53,7 @@ require (
 再次编译、执行代码。
 
 ```shell
--> go build -a && ./mymodule01
+» go build -a && ./mymodule01
 ```
 
 #### 小结
@@ -66,7 +66,7 @@ require (
 还是以上面提到过的 logrus 为例， logrus 有多少发布版本？
 
 ```shell
--> go list -m -versions github.com/sirupsen/logrus
+» go list -m -versions github.com/sirupsen/logrus
 #
 github.com/sirupsen/logrus v0.1.0 v0.1.1 v0.2.0 v0.3.0 v0.4.0 v0.4.1 v0.5.0 v0.5.1 v0.6.0 v0.6.1 v0.6.2 v0.6.3 v0.6.4 v0.6.5 v0.6.6 v0.7.0 v0.7.1 v0.7.2 v0.7.3 v0.8.0 v0.8.1 v0.8.2 v0.8.3 v0.8.4 v0.8.5 v0.8.6 v0.8.7 v0.9.0 v0.10.0 v0.11.0 v0.11.1 v0.11.2 v0.11.3 v0.11.4 v0.11.5 v1.0.0 v1.0.1 v1.0.3 v1.0.4 v1.0.5 v1.0.6 v1.1.0 v1.1.1 v1.2.0 v1.3.0 v1.4.0 v1.4.1 v1.4.2 v1.5.0 v1.6.0 v1.7.0 v1.7.1 v1.8.0 v1.8.1 v1.8.2 v1.8.3 v1.9.0 v1.9.1 v1.9.2 v1.9.3
 ```
@@ -74,7 +74,7 @@ github.com/sirupsen/logrus v0.1.0 v0.1.1 v0.2.0 v0.3.0 v0.4.0 v0.4.1 v0.5.0 v0.5
 1. go mod tidy 命令默认选择了 v1.9.3 （查看 go.mod 文件知道的），现在想降级到某个之前发布的兼容版本，比如 v1.8.0
 
    ```shell
-   -> go get github.com/sirupsen/logrus@v1.8.0
+   » go get github.com/sirupsen/logrus@v1.8.0
    #
    go: downloading github.com/sirupsen/logrus v1.8.0
    go: downloading github.com/stretchr/testify v1.2.2
@@ -87,8 +87,8 @@ github.com/sirupsen/logrus v0.1.0 v0.1.1 v0.2.0 v0.3.0 v0.4.0 v0.4.1 v0.5.0 v0.5
 1. 使用编辑 go.mod 和 go mod tidy 命令来完成降级
 
    ```shell
-   -> go mod edit -require=github.com/sirupsen/logrus@v1.7.0
-   -> go mod tidy
+   » go mod edit -require=github.com/sirupsen/logrus@v1.7.0
+   » go mod tidy
    #
    go: downloading github.com/sirupsen/logrus v1.7.0
    ```
@@ -98,7 +98,7 @@ github.com/sirupsen/logrus v0.1.0 v0.1.1 v0.2.0 v0.3.0 v0.4.0 v0.4.1 v0.5.0 v0.5
 1. 升级至某个补丁，仍然可以使用上面两种方式 go get 或 go mod tidy
 
    ```shell
-   -> go get github.com/sirupsen/logrus@v1.7.1
+   » go get github.com/sirupsen/logrus@v1.7.1
    #
    go: downloading github.com/sirupsen/logrus v1.7.1
    go: upgraded github.com/sirupsen/logrus v1.7.0 => v1.7.1
@@ -123,9 +123,9 @@ import (
 ```
 
 ```shell
--> go mod tidy # <== 也可以用 go get
+» go mod tidy # <== 也可以用 go get
 # ...
--> go build -a && ./mymodule01
+» go build -a && ./mymodule01
 #
 INFO[0000] hello module, go module mode
 INFO[0000] 84fe7dea-3d85-4729-b98b-605552a10237
@@ -143,9 +143,9 @@ import (
 ```
 
 ```shell
--> go mod tidy
+» go mod tidy
 # ...
--> go build -a && ./mymodule01
+» go build -a && ./mymodule01
 #
 INFO[0000] hello module, go module mode
 INFO[0000] a47d78da-cf33-4f57-a13f-552dc9d7cd90
@@ -157,7 +157,7 @@ INFO[0000] a47d78da-cf33-4f57-a13f-552dc9d7cd90
 然后用 go list 命令列出当前模块的所有依赖
 
 ```shell
--> go list -m all
+» go list -m all
 mymodule01
 # ...
 github.com/go-redis/redis/v8 v8.11.5
@@ -166,8 +166,8 @@ github.com/go-redis/redis/v8 v8.11.5
 发现 redis 依赖仍然在列？！正确的做法是使用 go mod tidy 命令，将这个依赖彻底从 module 构建上下文中清除。
 
 ```shell
--> go mod tidy
--> go list -m all
+» go mod tidy
+» go list -m all
 #
 mymodule01
 github.com/davecgh/go-spew v1.1.1
@@ -188,8 +188,8 @@ golang.org/x/sys v0.0.0-20220715151400-c0bba94af5f8
 与 GOPATH 构建模式不同，**Go Module 构建模式下，再也无需手动维护 vendor 目录下的依赖包了**，Go 提供了可以快速建立和更新 vendor 的命令
 
 ```shell
--> go mod vendor # <== 为项目建立 vendor
--> tree -LF 2 vendor
+» go mod vendor # <== 为项目建立 vendor
+» tree -LF 2 vendor
 vendor/
 ├── github.com/
 │   ├── google/
@@ -207,7 +207,7 @@ vendor/
 >*在 Go 1.14 及以后版本中，如果 Go 项目的顶层目录下存在 vendor 目录，那么 go build 默认也会优先基于 vendor 构建，除非已指定 go build -mod=mod 。
 
 ```shell
--> rm mymodule01 && go build -mod=vendor
+» rm mymodule01 && go build -mod=vendor
 ```
 
 ## 小结

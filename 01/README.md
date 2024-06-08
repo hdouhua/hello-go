@@ -10,8 +10,8 @@ Go语言是一种静态类型、编译型语言；
    以 Apple Silicon 为例
 
    ```shell
-   -> wget https://dl.google.com/go/go1.21.11.darwin-arm64.tar.gz
-   -> tar -xf go1.21.11.darwin-arm64.tar.gz -C ~/Documents/tools
+   » wget https://dl.google.com/go/go1.21.11.darwin-arm64.tar.gz
+   » tar -xf go1.21.11.darwin-arm64.tar.gz -C ~/Documents/tools
    ```
 
 - 配置 环境变量
@@ -41,11 +41,11 @@ Go语言是一种静态类型、编译型语言；
 
 ```shell
 # 编译
--> go build helloworld.go
+» go build helloworld.go
 # 执行
--> ./helloworld
+» ./helloworld
 # 或者直接运行源码
--> go run helloworld.go
+» go run helloworld.go
 ```
 
 源文件命名原则：
@@ -70,22 +70,22 @@ Go语言是一种静态类型、编译型语言；
 ## 第一个 Go 模块
 
 ```shell
-mkdir hellomodule
-cd hellomodule
-vi main.go
+» mkdir hellomodule
+» cd hellomodule
+» vi main.go
 #...
 
-go build main.go
+» go build main.go
 # 抛出错误
 main.go:4:2: no required module provides package github.com/valyala/fasthttp: go.mod file not found in current directory or any parent directory; see 'go help modules'
 main.go:5:2: no required module provides package go.uber.org/zap: go.mod file not found in current directory or any parent directory; see 'go help modules'
 
 # 初始化 module
-go mod init hellomodule
+» go mod init hellomodule
 # 查看 module 目录下多了 go.mod 文件
 
 # 执行 go mod tidy
-go mod tidy
+» go mod tidy
 # 查看 module 目录下还有 go.sum 文件
 
 # 再执行 go build
@@ -119,7 +119,7 @@ go.mod 已经记录了 hellomodule 直接依赖的包的信息。与此同时 he
 ### 典型的项目结构
 
 ```shell
--> tree -F exe-layout 
+» tree -F exe-layout 
 exe-layout
 ├── cmd/
 │   ├── app1/
@@ -150,7 +150,7 @@ exe-layout
 ### 多个 module 的项目结构
 
 ```shell
--> tree multi-modules
+» tree multi-modules
 multi-modules
 ├── go.mod // mainmodule
 ├── module1
@@ -167,7 +167,7 @@ multi-modules
 ### 仅有一个可执行程序的项目结构
 
 ```shell
--> tree -F -L 1 single-exe-layout
+» tree -F -L 1 single-exe-layout
 single-exe-layout
 ├── go.mod
 ├── internal/
@@ -184,7 +184,7 @@ single-exe-layout
 ### 典型的库项目结构
 
 ```shell
--> tree -F lib-layout 
+» tree -F lib-layout 
 lib-layout
 ├── go.mod
 ├── internal/
@@ -206,7 +206,7 @@ vendor 也不再是可选目录了。对于库类型项目而言，不推荐在�
 进一步简化为
 
 ```shell
--> -L 1 -F single-pkg-lib-layout
+» tree -F -L 1 single-pkg-lib-layout
 single-pkg-lib-layout
 ├── feature1.go
 ├── feature2.go
